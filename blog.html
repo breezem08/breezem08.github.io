@@ -1,0 +1,1015 @@
+
+  <!DOCTYPE html>
+<html>
+<style>
+
+
+/*** blog cod***/
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,700,700i|Raleway:300,400,500,700,800";
+
+.body {
+  background: #f9fbff;
+}
+a:hover {
+  text-decoration: none;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  box-shadow: 4px 15px 25px -12px rgba(152, 182, 255, 0.4);
+  margin-bottom: 1.6%;
+  background: #fff;
+  line-height: 1.4;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 0;
+}
+.blog-card a {
+  color: inherit;
+}
+.blog-card a:hover {
+  color: #ffc400;
+}
+.blog-card:hover .photo {
+  -webkit-transform: scale(1.15) rotate(3deg);
+  transform: scale(1.15) rotate(3deg);
+}
+.blog-card .meta {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+}
+.blog-card .photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+.blog-card .description {
+  padding: 1rem;
+  background: #fff;
+  position: relative;
+  /* z-index: 1; */
+}
+.blog-card .description h1 {
+  line-height: 1.35;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: "open sans";
+}
+.blog-card .description h2 {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #a2a2a2;
+  margin-top: 5px;
+  font-family: "open sans";
+}
+.blog-card .description .read-more {
+  padding-top: 8px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 6px;
+  position: absolute;
+  border-top: 1px solid #dadada;
+  color: #121212;
+}
+.column {
+
+  display: flex;
+  text-align: justify;
+  justify-content: center;
+  align-items: left;
+  flex-wrap: wrap;
+  float: left;
+  width: 50%;
+  height: auto;
+  margin: 10px;
+}
+.row {margin: 0 -5px;}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.blog-card .description .read-more a {
+  color: #121212;
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+  /*  border: 1px solid;
+  padding: 2px 10px; */
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.blog-card .description .read-more:after {
+  content: "\f061";
+  font-family: FontAwesome;
+  margin-left: -9px;
+  opacity: 0;
+  vertical-align: middle;
+  transition: margin 0.3s, opacity 0.3s;
+}
+.blog-card .description .read-more:hover:after {
+  margin-left: 10px;
+  opacity: 1;
+}
+.blog-card p {
+  position: relative;
+  margin: 10px 0 0;
+}
+.blog-card p:first-of-type {
+  margin-top: 1.25rem;
+}
+
+.blog-card:hover .details {
+  left: 0%;
+}
+@media (min-width: 640px) {
+  .blog-card {
+    flex-direction: row;
+    min-height: 130px;
+  }
+  .blog-card .meta {
+    flex-basis: 30%;
+    height: auto;
+  }
+  .blog-card .description {
+    flex-basis: 70%;
+  }
+  .blog-card .description:before {
+    -webkit-transform: skewX(-3deg);
+    transform: skewX(-3deg);
+    content: "";
+    background: #fff;
+    width: 30px;
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .blog-card.alt {
+    flex-direction: row-reverse;
+  }
+  .blog-card.alt .description:before {
+    left: inherit;
+    right: -10px;
+    -webkit-transform: skew(3deg);
+    transform: skew(3deg);
+  }
+  .blog-card.alt .details {
+    padding-left: 25px;
+  }
+}
+
+/*** blog cod***/
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+
+$text: #121212 ;
+$black: # 12121 ;
+$white: #fff ;
+$red: #e04f62 ;
+$border: #ebebebp ;
+$shadow: rgba(0, 0, 0, 0.2);
+
+@mixin transition($args...) {
+  transition: $args;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.6;
+  align-items: center;
+  justify-content: center;
+  text-rendering: optimizeLegibility;
+}
+
+#container {
+  width: 30rem;
+  height: 13.625rem;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: row;
+  background: $white;
+  box-shadow: 0 0.1875rem 1.5rem $shadow;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.card-link {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  &:hover .post-title {
+    @include transition(color 0.3s ease);
+    color: $red;
+  }
+  &:hover .post-image {
+    @include transition(opacity 0.3s ease);
+    opacity: 0.9;
+  }
+}
+
+.post-image {
+  @include transition(opacity 0.3s ease);
+  display: block;
+  width: 100%;
+	object-fit: cover;
+}
+
+.article-details {
+  padding: 1.5rem;
+}
+
+.post-category {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.0625rem;
+  margin: 0 0 0.75rem 0;
+  padding: 0 0 0.25rem 0;
+  border-bottom: 0.125rem solid $border;
+}
+
+.post-title {
+  @include transition(color 0.3s ease);
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: $black;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.post-author {
+  font-size: 0.875rem;
+  line-height: 1;
+  margin: 1.125rem 0 0 0;
+  padding: 1.125rem 0 0 0;
+  border-top: 0.0625rem solid $border;
+}
+
+@media (max-width: 40rem) {
+  #container {
+    width: 18rem;
+    height: 27.25rem;
+  }
+
+  .blog-card {
+    flex-wrap: wrap;
+  }
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.625rem;
+    grid-template-areas: ". main main ." ". main main .";
+  }
+
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .post-image {
+    height: 100%;
+  }
+
+  .blog-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+  }
+
+  @media (max-width: 40rem) {
+    .blog-card {
+      grid-template-columns: auto;
+      grid-template-rows: 12rem 1fr;
+    }
+  }
+}
+
+
+
+  @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Libre+Franklin');
+
+/********* Fonts
+font-family: 'Libre Franklin', sans-serif;
+font-family: 'Libre Baskerville', serif;
+***************/
+
+*{margin: 0px;
+}
+
+html{
+  background-color: #fefefe;
+  color: #292929;
+  font-family: 'Libre Franklin', sans-serif;
+  width: 100vw;
+  min-width: 1000px;
+}
+span{margin-right: 12px;}
+
+body{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/***** special elements ******/
+a{
+  text-decoration: none;
+  color: #267ABD;
+}
+
+h1{
+  font-family: 'Libre Baskerville', serif;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: norepeat;
+}
+/*********** Everything Related to the Nav ********/
+nav{
+  width: 90%;
+  max-width: 1420px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.main-nav{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content : space-between;
+  align-items: baseline;
+  padding: 40px;
+  position: relative;
+}
+
+.upgrade{
+  padding: 6px;
+  border: 1px solid #267ABD;
+  border-radius: 2px;
+}
+.title{
+  width: 90%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title h1{
+  font-size: 40px;
+  text-align: center;
+}
+.title p{
+  position: absolute;
+  text-align: center;
+  top: 74px;
+}
+
+.nav-icons a{
+  font-size: 18px;
+  padding-left: 12px;
+  color: #c7c7c7;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.nav-icons a:hover{
+  color: #267ABD;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.nav-subline{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0px 26px 12px 26px;
+  border-bottom: 1px solid;
+  margin-bottom: 12px;
+  font-size: 18px
+}
+
+.nav-date{
+  font-size: 14px;
+  font-weight: 900;
+}
+.nav-tagline{
+  align-self: center;
+  font-style: italic;
+  font-size: 14px;
+}
+.nav-editions{
+  font-size: 14px;
+}
+.nav-editions span{
+  margin: 6px;
+}
+
+.nav-bottomline{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-bottomline a {
+  margin-left: 6px;
+  margin-right: 6px;
+  color: #121212;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.nav-bottomline a:hover {
+  color: #072aa8;
+  -webkit-transition: .2s ease-in-out;
+}
+
+/************ Main content related *********/
+.main-container{
+  margin-top: 50px;
+  width: 95%;
+  max-width: 1420px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.divider{
+  width: 100%;
+  margin: 26px 0px 60px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.divider a { font-size: 12px;}
+.headlines{
+  width: 60%;
+  min-width: 600px;
+  padding-right: 6px;
+  border-right : 1px solid #c7c7c7;
+
+}
+
+.box {
+  background-color:  #383838;
+  display: flex;
+  text-align: justify;
+ text-justify: inter-word;
+  justify-content: space-between;
+  colour: white;
+  width: 1000px;
+  border: 5px white;
+  margin-left: 12px;
+  padding: 100px;
+
+}
+.aside{
+  width: 38%;
+  display: in-block;
+  margin-left: 12px;
+}
+
+.blog-headline{
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  justify-content: flex-start;
+}
+.topic{
+  position: absolute;
+  top: -30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.topic a {
+  color: #121212;
+  margin-right: 0px;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.topic a:hover {
+  color: #267ABD;
+  -webkit-transition: 1s ease-in-out;
+}
+.imgs{
+  width: 40%;
+  position: sticky;
+  overflow: hidden;
+}
+.tags{
+  opacity: 0;
+  left: -200px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+  color: white;
+  background: rgba( 0,0,0, .6);
+  -webkit-transition: 1s ease-in-out;
+}
+
+.imgs:hover .tags{
+  left:0px;
+  -webkit-transition: .5s ease-in-out;
+}
+
+.tags p{
+  width: 40px;
+  font-size: 14px;
+  margin: 12px 0px 12px 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid white;
+}
+.tags a{
+  color: white;
+  font-size: 12px;
+  margin-top: 12px;
+  margin-left: 12px;
+}
+.tags a:hover{
+  color: #accce5;
+}
+.tags:hover{
+  opacity: 1;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.blog-info{
+  padding: 12px;
+  width: 60%;
+}
+.blog-info-h1{
+  font-family: 'Libre Baskerville', serif;
+  font-size: 24px;
+  color: #292929;
+  -webkit-transition: 1s ease-in-out;
+}
+.blog-info-h1:hover{
+  color: #267ABD;
+  -webkit-transition: 1s ease-in-out;
+}
+.blog-info-subline{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items : baseline;
+}
+
+.blog-info-h4{
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+.blog-info-p{
+  margin-top : 26px;
+  margin-bottom: 12px;
+ text-align: justify;
+ text-justify: inter-word
+   font-size: 14px;
+}
+
+
+}
+.chevron{
+  font-size: 14px;
+  color: #c7c7c7;
+  -webkit-transition: .2s ease-in-out;
+}
+/*********
+Your Network Posts Sections
+***********/
+.aside-blog-headline{
+  padding: 0px, 0px, 50px, 0px;
+}
+.aside-blog-info-p{
+  margin-top: 26px;
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 12px;
+}
+.aside-blog-info-subline{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 0px solid #c7c7c7;
+  margin-bottom: 60px;
+}
+.border{
+  padding-bottom: 12px;
+  border-bottom: 1px solid #c7c7c7;
+}
+/*************
+
+/******************
+Footer Section
+******************/
+
+footer{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.footer-icons{
+  display: inline;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.footer-icons a{
+  margin-right: 12px;
+  color: #c7c7c7;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.footer-icons a:hover{
+  color: #267ABD;
+  -webkit-transition: 1s ease-in-out;
+}
+.mini-title{
+font-family: 'Libre Baskerville', serif;
+}
+.footer-actions span a{
+  color: #c7c7c7;
+  -webkit-transition: 1s ease-in-out;
+}
+
+.footer-actions span a:hover{
+  color: #267ABD;
+  -webkit-transition: 1s ease-in-out;
+}
+.footer-topline{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0px 12px 0px;
+  border-top: 1px solid #c7c7c7;
+  margin: 100px 0px 50px 0px;
+  border-bottom: 1px solid #c7c7c7;
+}
+
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<body>
+  <nav>
+    <div class="main-nav">
+      <div class="upgrade">
+        <a href="#">Subscribe</a>
+
+      </div>
+
+      <div class="title">
+        <h1> Large</h1>
+
+      </div>
+      <div class="nav-icons">
+        <a href="#"> <i class="fas fa-search"></i></a>
+        <a href="#"> <i class="far fa-bell"></i> </a>
+        <a href="#"> <i class="fas fa-bookmark"></i></a>
+        <a href="#"> <i class="far fa-user"></i></a>
+      </div>
+
+    </div>
+    <div class="nav-subline">
+<left>
+
+      <p class="nav-editions">Edition: <span><a href="#">US</a></span> | <span><a href="#"> India</a></span>  | <span><a href="#">Region</a></span>| <span><a href = "form.html"> Feedback</a></span></p>
+</left>
+</div>
+
+    <div class="nav-bottomline">
+      <a href="#"> Politics</a>
+       <a href="#"> Sports</a>
+       <a href="#"> Business</a>
+       <a href="#"> Tech</a>
+       <a href="#">Design</a>
+       <a href="#">Lifestyle</a>
+       <a href="#"> Music</a>
+       <a href="#"> Entertainment</a>
+       <a href="#">Entrepreneurship</a>
+       <a href="#"> Culture</a>
+       <a href="#">Science</a>
+       <a href="#"> More</a>
+    </div>
+  </nav>
+<br><br>
+<section class= "box">
+  <div class ="box">
+    <h1 style="color:white;"><h1><br>
+  <h2 style="color:white">  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..</P></h2>
+</section>
+<div class="container">
+  <div class="row">
+
+
+  </div>
+</div>
+<section><div class="column"><div class="col">
+<div class="container-fluid px-lg-5 body">
+  <div class="row justify-content-center">
+    <div class="col-lg-2 d-flex">
+      <div class="blog-card w-100">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://images.unsplash.com/photo-1520333789090-1afc82db536a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300)"></div>
+        </div>
+        <div class="description">
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <h2 class="pt-1 pb-4">Sed venenatis elit id ligula cursus sollicitudin</h2>
+          <p class="read-more">
+            <a href="#" target="_blank">Click Here</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+</div> </div></div></div>
+      </div>
+    </div>
+    <div class="col-lg-2 d-flex">
+      <div class="blog-card w-100">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300)"></div>
+        </div>
+        <div class="description">
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <h2 class="pt-1 pb-4">Sed venenatis elit id ligula cursus sollicitudin</h2>
+          <p class="read-more">
+            <a href="#" target="_blank">Click Here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+
+  <section class="main-container">
+
+    <div class="headlines">
+      <div class="divider border">
+        <h1 class="section-header"> From the Firehouse </h1>
+        <a href="#"> SEE ALL </a>
+      </div>
+
+      <!--- Start of "Today's Headlines" Entries---->
+      <div class="blog-headline">
+        <div class="topic">
+        <a href="#" > <H1>Designing </H1> </a>
+        </div>
+
+        <div class="imgs">
+          <!----do last in container -->
+          <div class="tags">
+
+
+
+          </div>
+          <img  src="https://miro.medium.com/max/1620/1*luY9oKsS5FG-NaMyZgNFoA.jpeg" alt="random_image"/>
+        </div>
+
+        <div class="blog-info">
+          <div class="blog-info-subline">
+            <h4 class="blog-info-h4"> <span><a href="#">Jane  Doe</a></span> <span>•</span> <span>4 min read</span></h4>
+            <h4 class="blog-info-h4"><span>Jun 22, 2018</span><span>  </span> <span><a class="chevron" href="#" > <i class=" fas fa-chevron-down"></i> </a></span></h4>
+         </div>
+
+
+          <a href="#" class="blog-info-h1"> A Year Of UX, Straight Out Of College</a>
+
+          <div class="blog-info-p"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis molestie ex et elit viverra gravida. Ut luctus eleifend euismod. Aliquam cursus eros lorem. Phasellus commodo diam nec ex ornare, quis dapibus leo elementum. Fusce facilisis erat vel libero auctor, ac posuere quam aliquet. Nam quam magna, finibus sagittis dictum ut, congue eget augue. Praesent convallis malesuada augue, a auctor quam dignissim a. Nullam venenatis semper suscipit. Ut sollicitudin, nibh at consectetur pharetra, lacus lectus eleifend justo, id cursus arcu lorem vel sapien.
+
+Nunc eu tellus vel erat vehicula eleifend. Maecenas lobortis aliquam lectus, vel pellentesque diam placerat ac. Duis in cursus odio, nec fermentum urna. Fusce quis est risus. Integer eget nisl in neque vulputate gravida. Sed tempus imperdiet elit ut sagittis. Mauris ac metus fringilla, semper massa id, aliquet magna. In non auctor ipsum, in aliquet eros. Praesent eleifend, orci eget euismod facilisis, ligula libero mattis mauris, at tristique diam elit in erat. Integer sit amet dolor eget mauris rutrum venenatis vitae ut arcu. Integer aliquet quam est, at feugiat orci convallis sit amet. Morbi fermentum erat sed enim venenatis, eu imperdiet elit pellentesque. non odio. Nunc ornare eu ipsum ac porta.<p></div>
+
+
+        </div>
+      </div>
+
+       <div class="blog-headline">
+        <div class="topic">
+
+        </div>
+
+        <div class="imgs">
+          <!----do last in container -->
+          <div class="tags">
+
+            <a href="#">
+              <span>
+
+            </a>
+          </div>
+          <img  src="https://webitfactory.io/wp-content/uploads/2019/11/ui-ux.png" alt="random_image"/>
+        </div>
+        <div class="blog-info">
+          <a href="#" class="blog-info-h1">Differances between UI & UX.</a>
+
+          <div class="blog-info-p"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros ante, imperdiet efficitur venenatis eu, imperdiet non odio. Nunc ornare eu ipsum ac porta.<p></div>
+
+          <div class="blog-info-subline">
+            <h4 class="blog-info-h4"> <span><a href="#">Dana Hayes</a></span> <span>•</span> <span>3 min read</span></h4>
+            <h4 class="blog-info-h4"><span>Jun 22, 2018</span><span> </span> <span><a class="chevron" href="#" > <i class=" fas fa-chevron-down"></i> </a></span></h4>
+         </div>
+        </div>
+      </div>
+
+       <div class="blog-headline">
+        <div class="topic">
+        <a href="#" > Tech </a>
+        </div>
+
+        <div class="imgs">
+          <!----do last in container -->
+          <div class="tags">
+
+
+
+
+            </a>
+          </div>
+          <img  src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b2a93380e2d61894168230dfdb6e99f1&auto=format&fit=crop&w=2250&q=80" alt="random_image"/>
+        </div>
+        <div class="blog-info">
+          <a href="#" class="blog-info-h1"> Make Your Own Robot With This Simple Kit</a>
+
+          <div class="blog-info-p"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros ante, imperdiet efficitur venenatis eu, imperdiet non odio. Nunc ornare eu ipsum ac porta.<p></div>
+
+          <div class="blog-info-subline">
+            <h4 class="blog-info-h4"> <span><a href="#">Erik Voss</a></span> <span>•</span> <span>12 min read</span></h4>
+            <h4 class="blog-info-h4"><span>Jun 21, 2018</span><span>  </span> <span><a class="chevron" href="#" > <i class=" fas fa-chevron-down"></i> </a></span></h4>
+         </div>
+        </div>
+      </div>
+
+       <div class="blog-headline">
+        <div class="topic">
+        <a href="#" > Music </a>
+        </div>
+
+        <div class="imgs">
+          <!----do last in container -->
+          <div class="tags">
+
+
+          </div>
+          <img  src="https://cdn.cnn.com/cnnnext/dam/assets/180617012056-beyonce-jayz-apes--t-screengrab.jpg" alt="random_image"/>
+        </div>
+        <div class="blog-info">
+          <a href="#" class="blog-info-h1"> Beyonce Is Back At It Again, Beehive Rejoice!!!!</a>
+
+          <div class="blog-info-p"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros ante, imperdiet efficitur venenatis eu, imperdiet non odio. Nunc ornare eu ipsum ac porta.<p></div>
+
+          <div class="blog-info-subline">
+            <h4 class="blog-info-h4"> <span><a href="#">Carly  Johanneson</a></span> <span>•</span> <span>8 min read</span></h4>
+            <h4 class="blog-info-h4"><span>Jun 20, 2018</span><span>  </span> <span><a class="chevron" href="#" > <i class=" fas fa-chevron-down"></i> </a></span></h4>
+         </div>
+        </div>
+      </div>
+
+      <!----- End of "Today's Headlines Container" --->
+    </div>
+
+
+
+
+
+    <div class="aside">
+      <div class="divider border">
+        <h1 class="section-header">About </h1>
+        <a href="#"> MORE</a>
+      </div>
+
+      <!-- Beginning of "Your Network" posts section -->
+
+       <div class="aside-blog-headline">
+
+<div class="aside-blog-info-p"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros ante, imperdiet efficitur venenatis eu, imperdiet non odio. Nunc ornare eu ipsum ac porta.<p></div>
+        <div class="aside-blog-info">
+          <a href="#" class="blog-info-h1"> <bold> Archives</bold></a>
+          <div class="aside-blog-info-subline">
+            <ul style="list-style-type:none;">
+            <li><a href="blog.html">2019</a></li><br>
+          <li>  <a href="blog.html">2018</a></li><br>
+          <li>  <a href="blog.html">2017</a></li><br>
+          <li>  <a href="blog.html">2016</a></li>
+            </ul>
+         </div>
+        </div>
+      </div>
+      <div class="aside-blog-headline">
+        <div class="aside-blog-info">
+          <a href="#" class="blog-info-h1">Find Us </a>
+             <div class="footer-icons">
+               <a href="#"> <i class="fab fa-facebook-f"></i> </a>
+               <a href="#"> <i class="fab fa-twitter"></i> </a>
+               <a href="#"> <i class="fas fa-rss"></i> </a>
+             </div>
+             <p style="text-align:right;">
+                   <a href = "form.html">  Feedback</a>
+                 </p>
+      </div>
+
+      <!---- End of "Your Network" posts section --->
+
+
+
+
+
+  </section>
+  <footer>
+
+     <div class="footer-topline">
+        <div class="footer-icons">
+          <a href="#"> <i class="fab fa-facebook-f"></i> </a>
+          <a href="#"> <i class="fab fa-twitter"></i> </a>
+          <a href="#"> <i class="fas fa-rss"></i> </a>
+        </div>
+
+       <p><span> large.com</span><span> &copy; 2020 </span><span class="mini-title">Large</span></p>
+
+      <div class="footer-actions">
+        <span><a href="#"> Subscribe </a></span><a HREF = "form.html">Feedback</a>
+        <span><a href="#"> Log In </a></span>
+    </div>
+
+  </div>
+
+
+
+
+    </div>
+
+  </footer>
+
+</body>
